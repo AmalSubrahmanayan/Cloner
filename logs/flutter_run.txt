@@ -1,0 +1,71 @@
+[9:08:52 AM]: Spawning C:\Flutter\flutter\bin\flutter.bat with args ["run","--machine","--start-paused","-d","emulator-5554","--devtools-server-address","http://127.0.0.1:9100/","--target","lib\\main.dart"]
+[9:08:52 AM]: ..  in C:\Users\amals\OneDrive\Desktop\Week 18\e_commerce
+[9:08:52 AM]: ..  with {"toolEnv":{"FLUTTER_HOST":"VSCode","PUB_ENVIRONMENT":"vscode.dart-code"}}
+[9:08:52 AM]: PID: 6784
+[9:08:54 AM]: <== [{"event":"daemon.connected","params":{"version":"0.6.1","pid":9452}}]
+[9:08:54 AM]: <== [{"event":"app.start","params":{"appId":"74799730-842e-4575-a9b6-9bbe8970324d","deviceId":"emulator-5554","directory":"C:\\Users\\amals\\OneDrive\\Desktop\\Week 18\\e_commerce","supportsRestart":true,"launchMode":"run"}}]
+[9:08:54 AM]: <== Launching lib\main.dart on sdk gphone x86 in debug mode...
+[9:08:55 AM]: <== [{"event":"app.progress","params":{"appId":"74799730-842e-4575-a9b6-9bbe8970324d","id":"0","progressId":null,"message":"Running Gradle task 'assembleDebug'...","finished":false}}]
+[9:09:20 AM]: <== Parameter format not correct -
+[9:09:25 AM]: <== [{"event":"app.progress","params":{"appId":"74799730-842e-4575-a9b6-9bbe8970324d","id":"0","progressId":null,"finished":true}}]
+[9:09:25 AM]: <== √  Built build\app\outputs\flutter-apk\app-debug.apk.
+[9:09:25 AM]: <== [{"event":"app.progress","params":{"appId":"74799730-842e-4575-a9b6-9bbe8970324d","id":"1","progressId":null,"message":"Installing build\\app\\outputs\\flutter-apk\\app.apk...","finished":false}}]
+[9:09:26 AM]: <== [{"event":"app.progress","params":{"appId":"74799730-842e-4575-a9b6-9bbe8970324d","id":"1","progressId":null,"finished":true}}]
+[9:09:29 AM]: <== [{"event":"app.debugPort","params":{"appId":"74799730-842e-4575-a9b6-9bbe8970324d","port":60656,"wsUri":"ws://127.0.0.1:60656/hWx-Dluk03M=/ws","baseUri":"file:///data/user/0/com.example.e_commerce/code_cache/e_commercePRNOPM/e_commerce/"}}]
+[9:09:29 AM]: <== [{"event":"app.progress","params":{"appId":"74799730-842e-4575-a9b6-9bbe8970324d","id":"2","progressId":null,"message":"Syncing files to device sdk gphone x86...","finished":false}}]
+[9:09:29 AM]: <== [{"event":"app.progress","params":{"appId":"74799730-842e-4575-a9b6-9bbe8970324d","id":"2","progressId":null,"finished":true}}]
+[9:09:29 AM]: <== [{"event":"app.started","params":{"appId":"74799730-842e-4575-a9b6-9bbe8970324d"}}]
+[9:09:43 AM]: <== I/TextInputPlugin(23667): Composing region changed by the framework. Restarting the input method.
+[9:09:43 AM]: <== W/IInputConnectionWrapper(23667): getTextBeforeCursor on inactive InputConnection
+[9:09:43 AM]: <== W/IInputConnectionWrapper(23667): getTextAfterCursor on inactive InputConnection
+[9:09:43 AM]: <== W/IInputConnectionWrapper(23667): getSelectedText on inactive InputConnection
+[9:09:43 AM]: <== W/IInputConnectionWrapper(23667): getTextBeforeCursor on inactive InputConnection
+[9:09:43 AM]: <== W/IInputConnectionWrapper(23667): getTextBeforeCursor on inactive InputConnection
+[9:09:43 AM]: <== I/TextInputPlugin(23667): Composing region changed by the framework. Restarting the input method.
+[9:09:43 AM]: <== W/IInputConnectionWrapper(23667): getTextBeforeCursor on inactive InputConnection
+[9:09:43 AM]: <== W/IInputConnectionWrapper(23667): getTextAfterCursor on inactive InputConnection
+[9:09:43 AM]: <== W/IInputConnectionWrapper(23667): getSelectedText on inactive InputConnection
+[9:09:43 AM]: <== W/IInputConnectionWrapper(23667): getTextBeforeCursor on inactive InputConnection
+[9:09:43 AM]: <== W/IInputConnectionWrapper(23667): getTextBeforeCursor on inactive InputConnection
+[9:17:53 AM]: ==> [{"id":"1","method":"app.restart","params":{"appId":"74799730-842e-4575-a9b6-9bbe8970324d","fullRestart":false,"pause":false,"reason":"save","debounce":true}}]
+[9:17:53 AM]: <== [{"event":"app.progress","params":{"appId":"74799730-842e-4575-a9b6-9bbe8970324d","id":"3","progressId":"hot.reload","message":"Performing hot reload...","finished":false}}]
+[9:17:53 AM]: <== [{"event":"app.progress","params":{"appId":"74799730-842e-4575-a9b6-9bbe8970324d","id":"4","progressId":null,"message":"Syncing files to device sdk gphone x86...","finished":false}}]
+[9:17:53 AM]: <== [{"event":"app.progress","params":{"appId":"74799730-842e-4575-a9b6-9bbe8970324d","id":"4","progressId":null,"finished":true}}]
+[9:17:53 AM]: <== [{"event":"app.progress","params":{"appId":"74799730-842e-4575-a9b6-9bbe8970324d","id":"3","progressId":"hot.reload","finished":true}}]
+[9:17:53 AM]: <== Reloaded 0 libraries in 325ms (compile: 22 ms, reload: 0 ms, reassemble: 110 ms).
+[9:17:53 AM]: <== [{"id":"1","result":{"code":0,"message":"Reloaded 0 libraries"}}]
+[9:18:54 AM]: ==> [{"id":"2","method":"app.restart","params":{"appId":"74799730-842e-4575-a9b6-9bbe8970324d","fullRestart":false,"pause":false,"reason":"save","debounce":true}}]
+[9:18:54 AM]: <== [{"event":"app.progress","params":{"appId":"74799730-842e-4575-a9b6-9bbe8970324d","id":"5","progressId":"hot.reload","message":"Performing hot reload...","finished":false}}]
+[9:18:54 AM]: <== [{"event":"app.progress","params":{"appId":"74799730-842e-4575-a9b6-9bbe8970324d","id":"6","progressId":null,"message":"Syncing files to device sdk gphone x86...","finished":false}}]
+[9:18:54 AM]: <== [{"event":"app.progress","params":{"appId":"74799730-842e-4575-a9b6-9bbe8970324d","id":"6","progressId":null,"finished":true}}]
+[9:18:55 AM]: <== [{"event":"app.progress","params":{"appId":"74799730-842e-4575-a9b6-9bbe8970324d","id":"5","progressId":"hot.reload","finished":true}}]
+[9:18:55 AM]: <== Reloaded 5 of 1065 libraries in 692ms (compile: 38 ms, reload: 235 ms, reassemble: 337 ms).
+[9:18:55 AM]: <== [{"id":"2","result":{"code":0,"message":"Reloaded 5 of 1065 libraries"}}]
+[10:06:25 AM]: ==> [{"id":"3","method":"app.restart","params":{"appId":"74799730-842e-4575-a9b6-9bbe8970324d","fullRestart":false,"pause":false,"reason":"save","debounce":true}}]
+[10:06:25 AM]: <== [{"event":"app.progress","params":{"appId":"74799730-842e-4575-a9b6-9bbe8970324d","id":"7","progressId":"hot.reload","message":"Performing hot reload...","finished":false}}]
+[10:06:25 AM]: <== [{"event":"app.progress","params":{"appId":"74799730-842e-4575-a9b6-9bbe8970324d","id":"8","progressId":null,"message":"Syncing files to device sdk gphone x86...","finished":false}}]
+[10:06:26 AM]: <== [{"event":"app.progress","params":{"appId":"74799730-842e-4575-a9b6-9bbe8970324d","id":"8","progressId":null,"finished":true}}]
+[10:06:26 AM]: <== [{"event":"app.progress","params":{"appId":"74799730-842e-4575-a9b6-9bbe8970324d","id":"7","progressId":"hot.reload","finished":true}}]
+[10:06:26 AM]: <== Reloaded 4 of 1066 libraries in 826ms (compile: 54 ms, reload: 249 ms, reassemble: 434 ms).
+[10:06:26 AM]: <== [{"id":"3","result":{"code":0,"message":"Reloaded 4 of 1066 libraries"}}]
+[10:06:47 AM]: ==> [{"id":"4","method":"app.restart","params":{"appId":"74799730-842e-4575-a9b6-9bbe8970324d","fullRestart":true,"pause":false,"reason":"manual"}}]
+[10:06:47 AM]: <== [{"event":"app.progress","params":{"appId":"74799730-842e-4575-a9b6-9bbe8970324d","id":"9","progressId":"hot.restart","message":"Performing hot restart...","finished":false}}]
+[10:06:47 AM]: <== [{"event":"app.progress","params":{"appId":"74799730-842e-4575-a9b6-9bbe8970324d","id":"10","progressId":null,"message":"Syncing files to device sdk gphone x86...","finished":false}}]
+[10:06:48 AM]: <== [{"event":"app.progress","params":{"appId":"74799730-842e-4575-a9b6-9bbe8970324d","id":"10","progressId":null,"finished":true}}]
+[10:06:48 AM]: <== [{"event":"app.progress","params":{"appId":"74799730-842e-4575-a9b6-9bbe8970324d","id":"9","progressId":"hot.restart","finished":true}}]
+[10:06:48 AM]: <== Restarted application in 1,250ms.
+[10:06:48 AM]: <== [{"id":"4","result":{"code":0,"message":""}}]
+[10:07:09 AM]: <== I/TextInputPlugin(23667): Composing region changed by the framework. Restarting the input method.
+[10:07:09 AM]: <== W/IInputConnectionWrapper(23667): getTextBeforeCursor on inactive InputConnection
+[10:07:09 AM]: <== W/IInputConnectionWrapper(23667): getTextAfterCursor on inactive InputConnection
+[10:07:09 AM]: <== W/IInputConnectionWrapper(23667): getSelectedText on inactive InputConnection
+[10:07:09 AM]: <== W/IInputConnectionWrapper(23667): getTextBeforeCursor on inactive InputConnection
+[10:07:09 AM]: <== W/IInputConnectionWrapper(23667): getTextBeforeCursor on inactive InputConnection
+[10:07:09 AM]: <== W/IInputConnectionWrapper(23667): getTextBeforeCursor on inactive InputConnection
+[10:07:09 AM]: <== I/TextInputPlugin(23667): Composing region changed by the framework. Restarting the input method.
+[10:09:28 AM]: <== D/CompatibilityChangeReporter(23667): Compat change id reported: 147798919; UID 10159; state: ENABLED
+[10:09:51 AM]: ==> [{"id":"5","method":"app.stop","params":{"appId":"74799730-842e-4575-a9b6-9bbe8970324d"}}]
+[10:09:53 AM]: error: closed
+[10:09:53 AM]: <== Application finished.
+[10:09:53 AM]: <== [{"id":"5","result":true}]
+[10:09:53 AM]: <== [{"event":"app.stop","params":{"appId":"74799730-842e-4575-a9b6-9bbe8970324d"}}]
