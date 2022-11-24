@@ -22,8 +22,8 @@ class Account extends StatelessWidget {
                   width: double.infinity,
                   decoration: const BoxDecoration(
                     borderRadius: BorderRadiusDirectional.only(
-                      bottomEnd: Radius.circular(80),
-                      bottomStart: Radius.circular(80),
+                      bottomEnd: Radius.circular(65),
+                      bottomStart: Radius.circular(65),
                     ),
                     color: Colors.white,
                   ),

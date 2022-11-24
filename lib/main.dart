@@ -1,10 +1,11 @@
 import 'package:e_commerce/controller/bottom_nav_bar/bottom_nav_bar_controller.dart';
+import 'package:e_commerce/controller/home/home_controller.dart';
 import 'package:e_commerce/controller/otp/otp_screen_controller.dart';
 import 'package:e_commerce/controller/reset_password/reset_password_controller.dart';
 import 'package:e_commerce/controller/sign_In/signin_controller.dart';
 import 'package:e_commerce/controller/sign_up/signup_controller.dart';
 import 'package:e_commerce/routes/route_functions.dart';
-import 'package:e_commerce/view/splash/splash.dart';
+import 'package:e_commerce/view/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => ResetPasswordProvider()),
         ChangeNotifierProvider(create: ((context) => BottomNavBarProvider())),
         ChangeNotifierProvider(create: ((context) => OtpScreenProvider())),
+        ChangeNotifierProvider(create: ((context) => HomeProvider())),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
@@ -35,7 +37,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.grey,
         ),
         debugShowCheckedModeBanner: false,
-        home: const SplashScreen(),
+        home: const Home(),
         onGenerateRoute: (settings) => AppRoutes.generateRoute(settings),
       ),
     );

@@ -1,6 +1,7 @@
 import 'package:e_commerce/model/otp/otp_arguement_model.dart';
 import 'package:e_commerce/model/resetpasswordmodel/resetpasswordmodel.dart';
 import 'package:e_commerce/routes/route_names.dart';
+import 'package:e_commerce/view/account/profile.dart';
 import 'package:e_commerce/view/bottom_nav/bottom_nav.dart';
 import 'package:e_commerce/view/home/home.dart';
 import 'package:e_commerce/view/item_page/item_page.dart';
@@ -52,6 +53,10 @@ class AppRoutes {
       case RouteNames.itemPage:
         return MaterialPageRoute(
           builder: (context) => ItemPage(),
+        );
+      case RouteNames.profile:
+        return MaterialPageRoute(
+          builder: (context) => const Profile(),
         );
       default:
         return MaterialPageRoute(

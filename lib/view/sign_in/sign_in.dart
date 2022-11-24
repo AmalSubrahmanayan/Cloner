@@ -2,7 +2,7 @@ import 'package:e_commerce/constants/colors/app_colors.dart';
 import 'package:e_commerce/constants/colors/app_sizedboxes.dart';
 import 'package:e_commerce/constants/colors/app_text_styles.dart';
 import 'package:e_commerce/controller/sign_In/signin_controller.dart';
-import 'package:e_commerce/controller/navigaotr/navigator_controller.dart';
+import 'package:e_commerce/constants/navigaotr/navigator_controller.dart';
 import 'package:e_commerce/view/sign_in/widgets/forgot_pass.dart';
 import 'package:e_commerce/view/sign_up/widgets/textfromfield.dart';
 import 'package:flutter/material.dart';
