@@ -9,11 +9,13 @@ class HomeAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      
       // color: Colors.white,
       decoration: AppColors.bgColor,
       padding: const EdgeInsets.all(25),
       child: Row(
         children: [
+        
           const Icon(
             Icons.sort,
             size: 30,

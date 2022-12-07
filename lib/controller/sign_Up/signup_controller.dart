@@ -12,7 +12,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SignUpProvider with ChangeNotifier {
-  signUp() {}
+  signUp() {
+    clearControllers();
+  }
+
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController mobilenumberController = TextEditingController();
@@ -25,7 +28,7 @@ class SignUpProvider with ChangeNotifier {
   String? usernameValidation(String? value) {
     if (value == null || value.isEmpty) {
       return "please choose a username to use";
-    } else if (value.length < 4) {
+    } else if (value.length < 3) {
       return "To shot username. choose a username  with 4 or more characters";
     } else {
       return null;
@@ -86,8 +89,7 @@ class SignUpProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void toSignUpOtpScreen(context, FormState currentState) {
-    log('button pressed and going to function');
+  void toSignUpOtpScreen(context, FormState currentState) async {
     final SignUpModel model = SignUpModel(
       fullName: usernameController.text,
       email: emailController.text,
@@ -97,19 +99,15 @@ class SignUpProvider with ChangeNotifier {
     final args = OtpArguementModel(
         model: model, checkScreen: OtpScreenEnum.signUpOtpScreen);
     if (currentState.validate()) {
-      log("is validated and button pressed");
       loading = true;
       notifyListeners();
-      ForgotPasswordService().getUser(emailController.text).then((value) async {
-        log(value.toString());
+      await ForgotPasswordService()
+          .getUser(emailController.text)
+          .then((value) async {
         if (value == null) {
-          log('go to sendotp fn');
           await OtpService().sendOtp(emailController.text).then((value) {
             log(value.toString());
             if (value != null) {
-              log('navigating to otpScreen');
-              log(args.checkScreen.toString());
-              log(args.model.toString());
               Navigator.of(context)
                   .pushNamed(RouteNames.otpScreen, arguments: args)
                   .then((value) {

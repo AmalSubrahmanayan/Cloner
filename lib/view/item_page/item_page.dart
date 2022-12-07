@@ -1,19 +1,21 @@
 import 'package:e_commerce/constants/colors/app_colors.dart';
+import 'package:e_commerce/constants/colors/app_sizedboxes.dart';
+import 'package:e_commerce/controller/item_page/item_page_controller.dart';
+import 'package:e_commerce/utils/loading_widget.dart';
 import 'package:e_commerce/view/item_page/widgets/item_app_bar.dart';
 import 'package:e_commerce/view/item_page/widgets/itembottom_nav_bar.dart';
-import 'package:e_commerce/view/item_page/widgets/page1.dart';
-import 'package:e_commerce/view/item_page/widgets/page3.dart';
-import 'package:e_commerce/view/item_page/widgets/page4.dart';
+import 'package:e_commerce/view/item_page/widgets/carousel_slider_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
-import 'widgets/page2.dart';
+import 'package:provider/provider.dart';
 
 class ItemPage extends StatelessWidget {
-  ItemPage({super.key});
+  ItemPage({
+    super.key,
+    required this.productId,
+  });
 
- final List<Color> clrs = [
+  final List<Color> clrs = [
     Colors.red,
     Colors.green,
     Colors.black,
@@ -22,200 +24,251 @@ class ItemPage extends StatelessWidget {
   ];
 
   final controller = PageController();
+  final String productId;
 
   @override
   Widget build(BuildContext context) {
+    final itemprovider = Provider.of<ItemProvider>(context, listen: false);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      itemprovider.getAProduct(productId);
+    });
     return SafeArea(
       child: Scaffold(
         backgroundColor: AppColors.whiteColor,
-        body: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              const ItemAppBar(),
-              SizedBox(
-                height: 300,
-                width: double.infinity,
-                child: PageView(
-                  controller: controller,
-                  children: const [
-                    Page1(),
-                    Page2(),
-                    Page3(),
-                    Page4(),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: SmoothPageIndicator(
-                  controller: controller,
-                  count: 4,
-                  effect: SwapEffect(
-                      activeDotColor: AppColors.blueColor,
-                      dotColor: Colors.grey.withOpacity(0.5),
-                      dotHeight: 9,
-                      dotWidth: 9),
-                ),
-              ),
-              Container(
-                height: 300,
-                width: double.infinity,
-                // color: Colors.green,
-                padding: const EdgeInsets.all(10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      "product Name",
-                      style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                      ),
+        body: Consumer<ItemProvider>(
+          builder: (context, values, _) {
+            final product = values.product;
+            return values.loading == true
+                ? const SizedBox(
+                    height: 200,
+                    width: double.infinity,
+                    child: Center(
+                      child: LoadingWidget(),
                     ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    const Text(
-                      "Our design consulting experts can help create a modern office which inspires your people. We don't just create office buildings, we can create the future of work for you. Eco friendly Office space. New Office Space Looks. Smart Office Designs. Best Workplace Designs.",
-                      style: TextStyle(
-                        fontSize: 15,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 5, bottom: 10),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          RatingBar.builder(
-                            itemBuilder: (context, _) => Icon(
-                              Icons.star,
-                              color: Colors.yellow[800],
-                            ),
-                            onRatingUpdate: (index) {},
-                            initialRating: 4,
-                            minRating: 1,
-                            direction: Axis.horizontal,
-                            itemCount: 5,
-                            itemSize: 25,
-                            itemPadding:
-                                const EdgeInsets.symmetric(horizontal: 4),
-                          ),
-                          Row(
-                            children: [
-                              Container(
-                                padding: const EdgeInsets.all(5),
-                                decoration: BoxDecoration(
-                                    // color: Colors.green,
-                                    borderRadius: BorderRadius.circular(20),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.grey.withOpacity(0.5),
-                                        spreadRadius: 3,
-                                        blurRadius: 10,
-                                        // offset(0, 3),
-                                      ),
-                                    ]),
-                                child: const Icon(
-                                  Icons.favorite,
-                                  color: AppColors.redColor,
-                                ),
+                  )
+                : values.product == null
+                    ? const SizedBox()
+                    : SingleChildScrollView(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            const ItemAppBar(),
+                            SizedBox(
+                              height: 300,
+                              width: double.infinity,
+                              child: PageView(
+                                controller: controller,
+                                children: [
+                                  CarouselSliderItem(product: product!.image!)
+                                ],
                               ),
-                            ],
-                          )
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 8),
-                      child: Row(
-                        children: [
-                          const Text(
-                            "Size: ",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
                             ),
-                          ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          Row(
-                            children: [
-                              for (int i = 5; i < 10; i++)
-                                Container(
-                                  height: 30,
-                                  width: 30,
-                                  alignment: Alignment.center,
-                                  margin:
-                                      const EdgeInsets.symmetric(horizontal: 5),
-                                  decoration: BoxDecoration(
-                                      color: AppColors.blueColor,
-                                      borderRadius: BorderRadius.circular(30),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: Colors.grey.withOpacity(0.5),
-                                          spreadRadius: 2,
-                                          blurRadius: 8,
-                                        ),
-                                      ]),
-                                  child: Text(
-                                    i.toString(),
-                                    style: const TextStyle(
-                                        fontSize: 18,
+                            //  {SmoothPageIndicator}
+                            Container(
+                              height: 500,
+                              width: double.infinity,
+                              padding: const EdgeInsets.all(10),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Expanded(
+                                    child: Text(
+                                      values.product!.name!,
+                                      overflow: TextOverflow.visible,
+                                      style: const TextStyle(
+                                        fontSize: 25,
                                         fontWeight: FontWeight.bold,
-                                        color: AppColors.whiteColor),
+                                        color: AppColors.blueColor,
+                                        overflow: TextOverflow.fade,
+                                      ),
+                                    ),
                                   ),
-                                )
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 8),
-                      child: Row(
-                        children: [
-                          const Text(
-                            "Color: ",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          Row(
-                            children: [
-                              for (int i = 0; i < 5; i++)
-                                Container(
-                                  height: 30,
-                                  width: 30,
-                                  alignment: Alignment.center,
-                                  margin:
-                                      const EdgeInsets.symmetric(horizontal: 5),
-                                  decoration: BoxDecoration(
-                                      color: clrs[i],
-                                      borderRadius: BorderRadius.circular(30),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: Colors.grey.withOpacity(0.5),
-                                          spreadRadius: 2,
-                                          blurRadius: 8,
+                                  Row(
+                                    children: [
+                                      const Text(
+                                        "₹ ",
+                                        style: TextStyle(
+                                          fontSize: 25,
+                                          color: Colors.blueGrey,
                                         ),
-                                      ]),
-                                )
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              )
-            ],
-          ),
+                                      ),
+                                      Text(
+                                        '${product.price}',
+                                        style: const TextStyle(
+                                          fontSize: 25,
+                                          fontWeight: FontWeight.bold,
+                                          color: AppColors.blueColor,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  AppSizedBoxes.sizedboxH10,
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      RatingBar.builder(
+                                        itemBuilder: (context, _) => Icon(
+                                          Icons.star,
+                                          color: Colors.yellow[800],
+                                        ),
+                                        onRatingUpdate: (index) {},
+                                        initialRating: double.parse(
+                                            values.product!.rating!),
+                                        minRating: 1,
+                                        direction: Axis.horizontal,
+                                        itemCount: 6,
+                                        itemSize: 25,
+                                        itemPadding: const EdgeInsets.symmetric(
+                                            horizontal: 4),
+                                      ),
+                                    ],
+                                  ),
+                                  AppSizedBoxes.sizedboxH20,
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: const [
+                                          Text(
+                                            "Size: ",
+                                            style: TextStyle(
+                                              fontSize: 25,
+                                              color: AppColors.blueColor,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          Text(
+                                            "US ",
+                                            style: TextStyle(
+                                              fontSize: 21,
+                                              color: AppColors.greyColor,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                      AppSizedBoxes.sizedboxH10,
+                                      const SizedBox(
+                                        width: 10,
+                                      ),
+                                      SizedBox(
+                                        height: 50,
+                                        child: ListView.separated(
+                                          separatorBuilder: (context, index) =>
+                                              const SizedBox(),
+                                          shrinkWrap: true,
+                                          scrollDirection: Axis.horizontal,
+                                          itemCount:
+                                              values.product!.size!.length,
+                                          itemBuilder: (context, index) =>
+                                              Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: GestureDetector(
+                                              onTap: () {
+                                                values.setSizeIndex(index);
+                                              },
+                                              child: Container(
+                                                height: 30,
+                                                width: 30,
+                                                alignment: Alignment.center,
+                                                margin:
+                                                    const EdgeInsets.symmetric(
+                                                        horizontal: 10),
+                                                decoration: BoxDecoration(
+                                                    color: Colors.grey,
+                                                    borderRadius: BorderRadius
+                                                        .circular(10),
+                                                    border:
+                                                        values.selectedSizeIndex ==
+                                                                index
+                                                            ? Border.all(
+                                                                color: AppColors
+                                                                    .blueColor,
+                                                                width: 2.5)
+                                                            : null,
+                                                    boxShadow: [
+                                                      BoxShadow(
+                                                        color: Colors.white60
+                                                            .withOpacity(0.5),
+                                                        spreadRadius: 2,
+                                                        blurRadius: 5,
+                                                      ),
+                                                    ]),
+                                                child: Text(
+                                                  values.product!.size![index],
+                                                  style: const TextStyle(
+                                                    color: AppColors.whiteColor,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      AppSizedBoxes.sizedboxH10,
+                                      const Text(
+                                        "Color: ",
+                                        style: TextStyle(
+                                          fontSize: 25,
+                                          color: AppColors.blueColor,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      AppSizedBoxes.sizedboxH10,
+                                      Row(
+                                        children: [
+                                          const SizedBox(
+                                            width: 10,
+                                          ),
+                                          Row(
+                                            children: [
+                                              for (int i = 0; i < 5; i++)
+                                                Container(
+                                                  height: 30,
+                                                  width: 30,
+                                                  alignment: Alignment.center,
+                                                  margin: const EdgeInsets
+                                                          .symmetric(
+                                                      horizontal: 10),
+                                                  decoration: BoxDecoration(
+                                                      color: clrs[i],
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              10),
+                                                      boxShadow: [
+                                                        BoxShadow(
+                                                          color: Colors.grey
+                                                              .withOpacity(0.5),
+                                                          spreadRadius: 2,
+                                                          blurRadius: 8,
+                                                        ),
+                                                      ]),
+                                                )
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                  AppSizedBoxes.sizedboxH20,
+                                  const Text(
+                                    "Our design consulting experts can help create a modern office which inspires your people. We don't just create office buildings, we can create the future of work for you. Eco friendly Office space. New Office Space Looks. Smart Office Designs. Best Workplace Designs.",
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                    ),
+                                  ),
+                                  AppSizedBoxes.sizedboxH20,
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                      );
+          },
         ),
         bottomNavigationBar: const ItemBottomNavBar(),
       ),

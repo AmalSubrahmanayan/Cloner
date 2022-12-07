@@ -1,6 +1,7 @@
 class SignInModel {
   final String email;
   final String password;
+
   SignInModel({
     required this.email,
     required this.password,
@@ -15,8 +16,8 @@ class SignInModel {
 
   factory SignInModel.fromJson(Map<String, dynamic> json) {
     return SignInModel(
-      email:json ['email'],
-      password:json ['password'],
+      email: json['email'],
+      password: json['password'],
     );
   }
 }

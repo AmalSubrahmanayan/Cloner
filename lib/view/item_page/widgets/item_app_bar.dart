@@ -21,19 +21,13 @@ class ItemAppBar extends StatelessWidget {
                 color: Colors.black,
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(left: 20),
-              child: Text(
-                "Product",
-                style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
-              ),
-            ),
-            // Spacer(),
-            // Icon(
-            //   Icons.favorite,
-            //   size: 30,
-            //   color: Colors.red,
-            // ),
+          //   const Padding(
+          //     padding: EdgeInsets.only(left: 20),
+          //     child: Text(
+          //       "Product",
+          //       style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
+          //     ),
+          //   ),
           ],
         ),
       ),

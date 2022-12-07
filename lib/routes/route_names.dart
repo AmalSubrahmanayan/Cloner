@@ -1,3 +1,4 @@
+
 class RouteNames {
   static const splashScreen = "splashScreen";
   static const signin = "signin";
@@ -9,4 +10,6 @@ class RouteNames {
   static const resetPassword = "resetPassword";
   static const profile = "profile";
   static const account = "account";
+  static const categories = "categories";
+  static const item = "productname";
 }

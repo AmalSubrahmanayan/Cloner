@@ -12,6 +12,7 @@ class AppColors {
   ));
    static const transparentColor = Colors.transparent;
   static const whiteColor = Colors.white;
+  static const greyColor = Colors.blueGrey;
   static const greenColor = Colors.green;
   static const redColor = Colors.red;
   static const buttonColor = Color(0xFF4c53A5);

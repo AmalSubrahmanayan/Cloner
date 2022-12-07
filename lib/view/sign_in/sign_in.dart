@@ -25,6 +25,7 @@ class SignIn extends StatelessWidget {
   Widget page(context) {
     final provider = Provider.of<SignInProvider>(context, listen: false);
     final formKey = GlobalKey<FormState>();
+    // final signInProvider = Provider(() => SignInService());
 
     return SafeArea(
       child: SingleChildScrollView(
@@ -81,7 +82,7 @@ class SignIn extends StatelessWidget {
                   Consumer<SignInProvider>(
                     builder: (BuildContext context, value, Widget? child) {
                       return ElevatedButton(
-                        onPressed: () => value.login(context),
+                        onPressed: () => value.login(context,formKey.currentState!),
                         style: ElevatedButton.styleFrom(
                             shape: const StadiumBorder(),
                             backgroundColor: AppColors.buttonColor,
